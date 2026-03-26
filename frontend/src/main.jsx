@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
-import './index.css' // O './App.css', depende de cómo se llame tu archivo de estilos globales
+import './App.css' // O './App.css', depende de cómo se llame tu archivo de estilos globales
 import { Amplify } from 'aws-amplify';
 
 // CONFIGURACIÓN DE AWS COGNITO
