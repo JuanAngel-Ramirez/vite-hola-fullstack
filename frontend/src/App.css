@@ -1,5 +1,169 @@
-.container { max-width: 500px; margin: 50px auto; font-family: sans-serif; text-align: center; }
-.input-group { margin-bottom: 20px; }
-.task-list { list-style: none; padding: 0; }
-.task-item { display: flex; justify-content: space-between; padding: 10px; border-bottom: 1px solid #ddd; }
-.btn-delete { background: #ff4d4d; color: white; border: none; cursor: pointer; }
+/* --- Estilos Globales (Fondo y Letra) --- */
+:root {
+  --primary-color: #3f51b5; /* Azul moderno */
+  --accent-color: #ff4081;  /* Rosa vibrante para eliminar */
+  --bg-color: #f4f7f6;     /* Gris muy claro de fondo */
+  --card-bg: #ffffff;      /* Blanco para las tarjetas */
+  --text-main: #2c3e50;    /* Gris oscuro para el texto */
+  --text-muted: #7f8c8d;   /* Gris claro para subtítulos */
+  --shadow: 0 4px 6px rgba(0,0,0,0.1); /* Sombra suave */
+  --shadow-hover: 0 10px 15px rgba(0,0,0,0.15); /* Sombra al pasar el mouse */
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- Contenedor Principal --- */
+.container {
+  width: 100%;
+  max-width: 650px; /* Centrado y con ancho máximo */
+  margin-top: 50px;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: var(--primary-color);
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+h1 + p { /* Subtítulo si lo tuvieras */
+  text-align: center;
+  color: var(--text-muted);
+  margin-bottom: 40px;
+}
+
+/* --- Input Group (Barra de búsqueda y botón Agregar) --- */
+.input-group {
+  display: flex;
+  gap: 15px; /* Espacio entre input y botón */
+  margin-bottom: 35px;
+  background: var(--card-bg);
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.input-group input {
+  flex-grow: 1; /* El input toma el resto del espacio */
+  padding: 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 8px rgba(63, 81, 181, 0.2);
+}
+
+.input-group button {
+  padding: 15px 30px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.input-group button:hover {
+  background-color: #303f9f; /* Azul un poco más oscuro */
+  transform: translateY(-2px); /* Pequeño salto hacia arriba */
+}
+
+/* --- Task List (La lista de tareas) --- */
+.task-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Espacio entre cada tarjeta de tarea */
+}
+
+.task-item {
+  background-color: var(--card-bg);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.task-item:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px); /* Pequeña elevación al pasar el mouse */
+}
+
+.task-item span {
+  font-size: 1.2rem;
+  color: var(--text-main);
+  font-weight: 500;
+}
+
+/* --- Botones de la Tarea (Editar/Eliminar) --- */
+.task-item div button {
+  margin-left: 10px;
+  padding: 8px 15px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Botón Editar (gris suave) */
+.task-item div button:first-child {
+  background-color: #f1f3f4;
+  color: var(--text-main);
+  border: 1px solid #dadce0;
+}
+
+.task-item div button:first-child:hover {
+  background-color: #e8eaed;
+}
+
+/* Botón Eliminar (rojo vibrante) */
+.task-item div button.btn-delete {
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+}
+
+.task-item div button.btn-delete:hover {
+  background-color: #ff1a6f;
+}
+
+/* --- Modo Edición (Cuando presionas Editar) --- */
+.task-item input {
+  padding: 10px;
+  border: 2px solid var(--primary-color);
+  border-radius: 6px;
+  font-size: 1.1rem;
+  margin-right: 10px;
+  flex-grow: 1;
+}
+
+.task-item button:last-of-type { /* El botón de Guardar */
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+}

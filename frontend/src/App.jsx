@@ -54,7 +54,8 @@ const API_URL = import.meta.env.VITE_API_URL || "https://ml5fhzrf5i.execute-api.
 
   return (
     <div className="container">
-      <h1>Gestor de Tareas - Juano</h1>
+      <h1>TSOFT - Mi Gestor</h1>
+      <p>Una práctica serverless para la ITSA - 2024</p>
       
       <div className="input-group">
         <input 
