@@ -5,8 +5,7 @@ function App() {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState('');
   const [editingTask, setEditingTask] = useState(null);
-  const API_URL = import.meta.env.VITE_API_URL;
-
+  const API_URL = import.meta.env.VITE_API_URL || "https://svwz1x1gr8.execute-api.us-east-1.amazonaws.com";
   // 1. Leer tareas (GET)
   const fetchTasks = async () => {
     try {
