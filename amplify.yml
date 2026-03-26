@@ -1,16 +1,18 @@
 version: 1
-frontend:
-  phases:
-    preBuild:
-      commands:
-        - npm run install-all
-    build:
-      commands:
-        - npm run build-all
-  artifacts:
-    baseDirectory: Interfaz/dist
-    files:
-      - '**/*'
-  cache:
-    paths:
-      - Interfaz/node_modules/**/*
+applications:
+  - appRoot: Interfaz
+    frontend:
+      phases:
+        preBuild:
+          commands:
+            - npm install
+        build:
+          commands:
+            - npm run build
+      artifacts:
+        baseDirectory: dist
+        files:
+          - '**/*'
+      cache:
+        paths:
+          - node_modules/**/*
