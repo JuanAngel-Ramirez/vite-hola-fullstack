@@ -1,19 +1,18 @@
 version: 1
 applications:
-  - frontend:
+  - appRoot: Interfaz
+    frontend:
       phases:
         preBuild:
           commands:
-            # Entramos a Interfaz, que es como se llama en tu GitHub
-            - cd Interfaz && npm install
+            - npm install
         build:
           commands:
-            - cd Interfaz && npm run build
+            - npm run build
       artifacts:
-        baseDirectory: Interfaz/dist
+        baseDirectory: dist
         files:
           - '**/*'
       cache:
         paths:
-          - Interfaz/node_modules/**/*
-    appRoot: Interfaz
+          - node_modules/**/*
