@@ -1,11 +1,15 @@
 import { useState, useEffect } from 'react';
 import './App.css';
+// 1. IMPORTAMOS LAS LIBRERÍAS DE AUTENTICACIÓN
+import { withAuthenticator } from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css';
 
-function App() {
+// 2. RECIBIMOS signOut Y user COMO PARÁMETROS
+function App({ signOut, user }) {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState('');
   const [editingTask, setEditingTask] = useState(null);
-const API_URL = import.meta.env.VITE_API_URL || "https://ml5fhzrf5i.execute-api.us-east-1.amazonaws.com";
+  const API_URL = import.meta.env.VITE_API_URL || "https://ml5fhzrf5i.execute-api.us-east-1.amazonaws.com";
 
   // 1. Leer tareas (GET)
   const fetchTasks = async () => {
@@ -54,6 +58,12 @@ const API_URL = import.meta.env.VITE_API_URL || "https://ml5fhzrf5i.execute-api.
 
   return (
     <div className="container">
+      {/* 3. BOTÓN DE CERRAR SESIÓN Y SALUDO PERSONALIZADO */}
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+        <span>Hola, <b>{user?.username}</b></span>
+        <button onClick={signOut} className="btn-signout">Cerrar Sesión</button>
+      </div>
+
       <h1>TSOFT - Mi Gestor</h1>
       <p>Una práctica serverless para la ITSA - 2024</p>
       
@@ -94,4 +104,5 @@ const API_URL = import.meta.env.VITE_API_URL || "https://ml5fhzrf5i.execute-api.
   );
 }
 
-export default App;
+// 4. ENVOLVEMOS LA APP CON withAuthenticator
+export default withAuthenticator(App);
