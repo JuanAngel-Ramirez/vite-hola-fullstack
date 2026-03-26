@@ -1,6 +1,6 @@
 version: 1
 applications:
-  - appRoot: Interfaz
+  - appRoot: frontend
     frontend:
       phases:
         preBuild:
