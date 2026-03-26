@@ -1,0 +1,5 @@
+.container { max-width: 500px; margin: 50px auto; font-family: sans-serif; text-align: center; }
+.input-group { margin-bottom: 20px; }
+.task-list { list-style: none; padding: 0; }
+.task-item { display: flex; justify-content: space-between; padding: 10px; border-bottom: 1px solid #ddd; }
+.btn-delete { background: #ff4d4d; color: white; border: none; cursor: pointer; }
