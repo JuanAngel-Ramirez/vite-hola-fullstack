@@ -64,8 +64,8 @@ function App({ signOut, user }) {
         <button onClick={signOut} className="btn-signout">Cerrar Sesión</button>
       </div>
 
-      <h1>TSOFT - Mi Gestor</h1>
-      <p>Una práctica serverless para la ITSA - 2024</p>
+      <h1> Mi Gestor</h1>
+      <p>Una práctica serverless para la ITSA </p>
       
       <div className="input-group">
         <input 
